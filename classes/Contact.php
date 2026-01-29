@@ -1,18 +1,28 @@
-<?php
-require_once '../classes/Contact.php';
-$msg = "";
+class Contact {
+    private $conn;
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $c = new Contact();
-    if($c->save($_POST['name'], $_POST['email'], $_POST['message'])) {
-        $msg = "Mesazhi u dërgua!";
+    public function __construct() {
+        $db = new Database();
+        $this->conn = $db->connect();
+    }
+
+    public function save($name, $email, $message) {
+        $sql = "INSERT INTO contacts (name, email, message) VALUES (:n, :e, :m)";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute([
+            ':n' => $name,
+            ':e' => $email,
+            ':m' => $message
+        ]);
+    }
+
+    public function getAll() {
+        return $this->conn->query("SELECT * FROM contacts ORDER BY id DESC");
     }
 }
 ?>
-<form method="post">
-<p><?= $msg ?></p>
-<input name="name" required placeholder="Emri">
-<input name="email" type="email" required placeholder="Email">
-<textarea name="message" required placeholder="Mesazhi"></textarea>
-<button>Dërgo</button>
-</form>
+
+
+
+
+
