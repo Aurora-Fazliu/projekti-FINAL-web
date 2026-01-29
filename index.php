@@ -1,5 +1,5 @@
 <?php
-require_once '../classes/Property.php';
+require_once __DIR__ . '/../classes/Property.php';
 $property = new Property();
 $latestProperties = $property->getAll();
 ?>
