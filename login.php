@@ -1,22 +1,14 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
-require_once '/classes/User.php';
 
-$error = "";
-
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = new User();
-    $data = $user->login($_POST['email'], $_POST['password']);
-
-    if($data) {
-        $_SESSION['user'] = $data;
-        header("Location: dashboard.php");
-        exit;
-    } else {
-        $error = "Email ose fjalëkalim i gabuar";
-    }
-}
+// lidhja me klasën User dhe databazën
+require_once __DIR__ . '/classes/User.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -46,10 +38,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <main class="container">
 <h2>Hyr në Llogari</h2>
-
-<p style="color:red;">
-<?= htmlspecialchars($error) ?>
-</p>
 
 <form method="post">
 <input type="email" name="email" placeholder="Email" required>
