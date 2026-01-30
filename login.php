@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../classes/User.php';
+require_once '/classes/User.php';
 
 $error = "";
 
@@ -23,7 +23,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login – Real Estate Insight</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="style.css">
+<script src="public/assets/validate.js" defer></script>
 </head>
 <body>
 
