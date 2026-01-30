@@ -1,31 +1,30 @@
 <?php
-session_start();
-require_once '../classes/User.php';
-
-$error = "";
+require_once 'classes/User.php';
+$message = "";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = new User();
-    $data = $user->login($_POST['email'], $_POST['password']);
-
-    if($data) {
-        $_SESSION['user'] = $data;
-        header("Location: dashboard.php");
-        exit;
+    if($user->register($_POST['name'], $_POST['email'], $_POST['password'])) {
+        $message = "Regjistrimi u krye me sukses!";
     } else {
-        $error = "Email ose fjalëkalim i gabuar";
+        $message = "Gabim gjatë regjistrimit";
     }
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="sq">
+<head>
+<link rel="stylesheet" href="style.css">
+<script src="public/assets/validate.js" defer></script>
+</head>
 <body>
-<h2>Login</h2>
-<p><?= $error ?></p>
+<h2>Register</h2>
+<p><?= $message ?></p>
 <form method="post">
-<input name="email" type="email" required>
-<input name="password" type="password" required>
-<button>Login</button>
+<input name="name" required placeholder="Emri">
+<input name="email" type="email" required placeholder="Email">
+<input name="password" type="password" required placeholder="Password">
+<button>Register</button>
 </form>
 </body>
 </html>
