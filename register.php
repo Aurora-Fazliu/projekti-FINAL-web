@@ -1,5 +1,5 @@
 <?php
-require_once '/classes/User.php';
+require_once __DIR__ . '/classes/User.php';
 $message = "";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -38,16 +38,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main class="container">
 <h2>Krijo Llogari</h2>
 <p><?= $message ?></p>
-<form method="post">
+<form method="post" action="">
 <input name="name" required placeholder="Emri">
 <input name="email" type="email" required placeholder="Email">
 <input name="password" type="password" required placeholder="Password">
-<button>Register</button>
+<button type="submit">Register</button>
 </form>
+
 </main>
 <footer>
 <p>2025 Real Estate Insight</p>
 </footer>
 </body>
 </html>
-
