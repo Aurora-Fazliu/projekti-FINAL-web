@@ -1,6 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/Database.php'; // shkon një nivel lart dhe pastaj në config
-
+require_once __DIR__ . '/../config/Database.php'; 
 class Property {
     private $conn;
     private $table = "properties";
