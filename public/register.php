@@ -1,5 +1,5 @@
 <?php
-require_once '../classes/User.php';
+require_once 'classes/User.php';
 $message = "";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,7 +14,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="style.css">
+<script src="public/assets/validate.js" defer></script>
 </head>
 <body>
 <h2>Register</h2>
