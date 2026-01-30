@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/../config/Database.php'; // shkon një nivel lart dhe pastaj në config
 
 class Property {
     private $conn;
@@ -35,10 +35,3 @@ class Property {
     }
 }
 ?>
-
-
-
-
-
-
-
