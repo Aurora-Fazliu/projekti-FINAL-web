@@ -9,6 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $msg = "Gabim gjatë dërgimit të mesazhit!";
     }
 }
+$msg = "";
 ?>
 <!DOCTYPE html>
 <html lang="sq">
